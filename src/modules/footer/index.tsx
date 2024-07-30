@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <div className="  p-[20px] md:px-[120px] md:pt-[120px] md:pb-[60px]">
-      <div class="container mx-auto flex flex-col items-center justify-center text-center h-full mt-10 md:mt-0">
+      <div className="container mx-auto flex flex-col items-center justify-center text-center h-full mt-10 md:mt-0">
         <h2 className="border-2 border-solid border-b-black leading-[0.1px] w-full">
           <span className="bg-white">Contact</span>
         </h2>
@@ -13,7 +13,7 @@ export default function Footer() {
           <p className="md:w-[60%]">{UI.contact.desc}</p>
           <button className="btn-primary">Write Message</button>
         </div>
-        <div class="mt-10 md:mt-[100px]">{UI.contact.sign}</div>
+        <div className="mt-10 md:mt-[100px]">{UI.contact.sign}</div>
       </div>
     </div>
   );

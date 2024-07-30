@@ -54,7 +54,7 @@ export default function Header() {
         onClick={() => setIsOpenMenu(!isOpenMenu)}
       />
       {isOpenMenu && (
-        <div class="md:hidden bg-white fixed inset-0 top-[50px] z-20 flex flex-col justify-center items-center gap-14 ">
+        <div className="md:hidden bg-white fixed inset-0 top-[50px] z-20 flex flex-col justify-center items-center gap-14 ">
           <nav className="flex flex-col gap-10 text-xl">
             {nav.map((navItem, index) => (
               <span key={index}>{navItem.name}</span>

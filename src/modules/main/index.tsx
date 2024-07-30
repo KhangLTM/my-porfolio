@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { globalValContext } from "@/context/globalVal.tsx";
 import { isMobile } from "react-device-detect";
+import { Project,WorkExperience } from "@/types/ui";
 
 import Lottie from "react-lottie";
 import swipeDown from "@/assets/lotties/swipe-down.json";
@@ -28,7 +29,7 @@ export default function Main() {
           </h2>
           <div className="flex flex-col items-center md:items-start md:flex-row gap-10 mt-14">
             <div className="text-left md:w-[60%] space-y-8">
-              {UI.about.desc.map((descItem) => (
+              {UI.about.desc.map((descItem:string) => (
                 <p key={descItem}>{descItem}</p>
               ))}
             </div>
@@ -42,7 +43,7 @@ export default function Main() {
             <span className="bg-white">Experience</span>
           </h2>
 
-          {UI.experience.map((expItem, index) => (
+          {UI.experience.map((expItem:WorkExperience, index:number) => (
             <>
               <div key={index} className="hidden md:grid  grid-cols-8 mt-14">
                 <div
@@ -63,7 +64,7 @@ export default function Main() {
                     index % 2 !== 0 ? "order-1" : "order-3"
                   }`}
                 >
-                  {expItem.responsibility.map((resItem) => (
+                  {expItem.responsibility.map((resItem:string) => (
                     <li key={resItem}>{resItem}</li>
                   ))}
                 </ul>
@@ -76,7 +77,7 @@ export default function Main() {
                   </h4>
                 </div>
                 <ul className="text-left space-y-3 list-disc ml-[20px] ">
-                  {expItem.responsibility.map((resItem) => (
+                  {expItem.responsibility.map((resItem:string) => (
                     <li key={resItem}>{resItem}</li>
                   ))}
                 </ul>
@@ -86,12 +87,12 @@ export default function Main() {
         </div>
       </div>
       <div className="p-[20px] md:p-[120px] bg-gray-200">
-        <div class="container mx-auto flex flex-col items-center text-center mt-10 md:mt-0">
+        <div className="container mx-auto flex flex-col items-center text-center mt-10 md:mt-0">
           <h2 className="border-2 border-solid border-b-black leading-[0.1px] w-full">
             <span className="bg-gray-200">Featured Project</span>
           </h2>
 
-          {UI.projects.featured.map((projectItem, index) => (
+          {UI.projects.featured.map((projectItem:Project, index:number) => (
             <div
               key={index}
               className="grid grid-cols-1 md:grid-cols-2 mt-14 gap-10"
@@ -123,7 +124,7 @@ export default function Main() {
             <span className="bg-gray-200">Other Project</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-4 md:gap-10 mt-10 md:mt-0">
-            {UI.projects.other.map((projectItem, index) => (
+            {UI.projects.other.map((projectItem:Project, index:number) => (
               <div key={index} className="flex md:mt-14 gap-2">
                 <div className="text-left min-w-[70px] h-[70px] md:min-w-[100px] md:h-[100px] bg-gray-500 rounded-sm"></div>
                 <div className="text-left space-y-2">
