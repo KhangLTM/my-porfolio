@@ -79,7 +79,7 @@ export default {
     ],
   },
   contact: {
-    desc: "I am currently seeking employment, and I would appreciate it if you could contact me with any available job opportunities.2",
+    desc: "I am currently seeking employment, and I would appreciate it if you could contact me with any available job opportunities.",
     sign:'Vi Khang - 2024'
   },
 };

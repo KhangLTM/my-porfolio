@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import menu from "@/assets/icons/menu.svg";
-import close from "@/assets/icons/close.svg";
+import logo from "@/assets/img/logo.png";
+import Hamburger from "hamburger-react";
 
 const nav = [
   {
@@ -36,8 +36,11 @@ export default function Header() {
   }, [isOpenMenu]);
 
   return (
-    <div className="grid grid-cols-12 h-14 w-full bg-white place-items-center">
-      <p className="col-span-3 grid place-content-center">Logo</p>
+    <div className="grid grid-cols-12 h-14 w-full bg-white place-items-center mt-4">
+      <img
+        className="col-span-3 grid place-content-center shadow-md"
+        src={logo}
+      />
       <nav className="hidden md:flex  col-span-6 justify-center gap-4 items-center">
         {nav.map((navItem) => (
           <span key={navItem.value}>{navItem.name}</span>
@@ -47,14 +50,13 @@ export default function Header() {
         <button className="btn-primary">Resume</button>
         <button className="btn-primary">Hire me</button>
       </div>
-      <div className="col-span-6 md:hidden"></div>
-      <img
-        className="md:hidden col-span-3"
-        src={isOpenMenu ? close : menu}
-        onClick={() => setIsOpenMenu(!isOpenMenu)}
-      />
+      <div className="col-span-7 md:hidden"></div>
+      <div className="md:hidden col-span-2">
+        <Hamburger size={32} toggled={isOpenMenu} toggle={setIsOpenMenu} />
+      </div>
+
       {isOpenMenu && (
-        <div className="md:hidden bg-white fixed inset-0 top-[50px] z-20 flex flex-col justify-center items-center gap-14 ">
+        <div className="md:hidden bg-white fixed inset-0 top-[70px] z-20 flex flex-col justify-center items-center gap-14 ">
           <nav className="flex flex-col gap-10 text-xl">
             {nav.map((navItem, index) => (
               <span key={index}>{navItem.name}</span>
