@@ -32,8 +32,13 @@ export interface Contact {
   desc: string;
   sign: string;
 }
+export interface Nav {
+  name: string;
+  value: string;
+}
 
 export interface UI {
+  nav: Nav[];
   hero: Hero;
   about: About;
   experience: WorkExperience[];
