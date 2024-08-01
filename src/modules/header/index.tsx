@@ -1,28 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import logo from "@/assets/img/logo.png";
 import Hamburger from "hamburger-react";
-
-const nav = [
-  {
-    name: "about",
-    value: "about",
-  },
-  {
-    name: "experience",
-    value: "experience",
-  },
-  {
-    name: "project",
-    value: "project",
-  },
-  {
-    name: "contact",
-    value: "contact",
-  },
-];
-
+import "./style.scss";
+import { globalValContext } from "@/context/globalVal.tsx";
+import useScrollVisibility from "@/hooks/useScrollVisibility";
 export default function Header() {
+  const { UI } = useContext(globalValContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const visible = useScrollVisibility();
+
+  const cls = visible
+    ? "visible grid grid-cols-12 h-[80px] w-full bg-white place-items-center fixed top-0 bg-white z-30 transition-header"
+    : "invisible top-[-80px] transition-header";
+
   useEffect(() => {
     if (isOpenMenu) {
       document.body.style.overflow = "hidden";
@@ -36,14 +27,20 @@ export default function Header() {
   }, [isOpenMenu]);
 
   return (
-    <div className="grid grid-cols-12 h-14 w-full bg-white place-items-center mt-4">
+    <div className={cls}>
       <img
         className="col-span-3 grid place-content-center shadow-md"
         src={logo}
       />
       <nav className="hidden md:flex  col-span-6 justify-center gap-4 items-center">
-        {nav.map((navItem) => (
-          <span key={navItem.value}>{navItem.name}</span>
+        {UI.nav.map((navItem) => (
+          <a
+            className="nav-effect"
+            key={navItem.value}
+            href={`#${navItem.value}`}
+          >
+            {navItem.name}
+          </a>
         ))}
       </nav>
       <div className="hidden md:flex col-span-3 justify-center gap-4">
@@ -58,8 +55,14 @@ export default function Header() {
       {isOpenMenu && (
         <div className="md:hidden bg-white fixed inset-0 top-[70px] z-20 flex flex-col justify-center items-center gap-14 ">
           <nav className="flex flex-col gap-10 text-xl">
-            {nav.map((navItem, index) => (
-              <span key={index}>{navItem.name}</span>
+            {UI.nav.map((navItem) => (
+              <a
+                href={`#${navItem.value}`}
+                key={navItem.value}
+                onClick={() => setIsOpenMenu(false)}
+              >
+                {navItem.name}
+              </a>
             ))}
           </nav>
           <div className="flex flex-col gap-8">

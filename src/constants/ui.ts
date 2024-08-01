@@ -1,4 +1,22 @@
 export default {
+  nav: [
+    {
+      name: "about",
+      value: "about",
+    },
+    {
+      name: "experience",
+      value: "experience",
+    },
+    {
+      name: "project",
+      value: "project",
+    },
+    {
+      name: "contact",
+      value: "contact",
+    },
+  ],
   hero: {
     title: "Hi, I’m Khang",
     desc: "I design and build things.",
@@ -80,6 +98,6 @@ export default {
   },
   contact: {
     desc: "I am currently seeking employment, and I would appreciate it if you could contact me with any available job opportunities.",
-    sign:'Vi Khang - 2024'
+    sign: "Vi Khang - 2024",
   },
 };
