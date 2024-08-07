@@ -119,7 +119,7 @@ export default function Main() {
                 </a>
                 <p>{projectItem.desc}</p>
                 <div className="w-full border solid border-gray-500 my-2"></div>
-                <p class="font-semibold">{projectItem.techStack}</p>
+                <p className="font-semibold">{projectItem.techStack}</p>
               </div>
               <a href={projectItem.link} target="_blank">
                 <img
