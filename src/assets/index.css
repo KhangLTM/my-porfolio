@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    font-family: "Open Sans";
     scroll-behavior: smooth;
   }
   h1 {

@@ -28,7 +28,7 @@ export default function Main() {
       <div id="about" className=" bg-gray-200 p-[20px] md:p-[120px]">
         <div className="container mx-auto flex flex-col items-center text-center mt-10 md:mt-0">
           <h2 className="border-2 border-solid border-b-black leading-[0.1px] w-full">
-            <span className="bg-gray-200 px-2 md:px-4">About Me</span>
+            <span className="bg-gray-200 px-2 md:px-4 font-bold">About Me</span>
           </h2>
           <div className="flex flex-col items-center md:items-start md:flex-row gap-10 mt-14">
             <div className="text-left md:w-[60%] space-y-8">
@@ -46,7 +46,7 @@ export default function Main() {
       <div id="experience" className=" p-[20px] md:p-[120px]">
         <div className="container mx-auto flex flex-col items-center text-center  mt-10 md:mt-0">
           <h2 className="border-2 border-solid border-b-black leading-[0.1px] w-full">
-            <span className="bg-white px-2 md:px-4">Experience</span>
+            <span className="bg-white px-2 md:px-4 font-bold">Experience</span>
           </h2>
 
           {UI.experience.map((expItem: WorkExperience, index: number) => (
@@ -95,7 +95,7 @@ export default function Main() {
       <div id="project" className="p-[20px] md:p-[120px] bg-gray-200">
         <div className="container mx-auto flex flex-col items-center text-center mt-10 md:mt-0">
           <h2 className="border-2 border-solid border-b-black leading-[0.1px] w-full">
-            <span className="bg-gray-200 px-2 md:px-4">Featured Project</span>
+            <span className="bg-gray-200 px-2 md:px-4 font-bold">Featured Project</span>
           </h2>
 
           {UI.projects.featured.map((projectItem: Project, index: number) => (
@@ -113,13 +113,13 @@ export default function Main() {
                 }`}
               >
                 <a href={projectItem.link} target="_blank">
-                  <h3 className="cursor-pointer hover:opacity-80">
+                  <h3 className="cursor-pointer hover:opacity-80 font-semibold">
                     {projectItem.name}
                   </h3>
                 </a>
                 <p>{projectItem.desc}</p>
                 <div className="w-full border solid border-gray-500 my-2"></div>
-                <p>{projectItem.techStack}</p>
+                <p class="font-semibold">{projectItem.techStack}</p>
               </div>
               <a href={projectItem.link} target="_blank">
                 <img
@@ -145,18 +145,18 @@ export default function Main() {
                 <a href={projectItem.link} target="_blank">
                   <img
                     src={getImage(projectItem.image)}
-                    className="text-left min-w-[70px] h-[70px] md:min-w-[100px] md:h-[100px] bg-gray-500 rounded-sm object-contain"
+                    className="text-left min-w-[70px] h-[70px] md:min-w-[120px] md:h-[100px] bg-gray-500 rounded-sm object-contain"
                   />
                 </a>
                 <div className="text-left space-y-2">
-                  <h4 className="cursor-auto opacity-80">
+                  <h4 className="cursor-auto hover:opacity-80 font-semibold">
                     <a href={projectItem.link} target="_blank">
                       {projectItem.name}
                     </a>
                   </h4>
                   <p className="text-sm">{projectItem.desc}</p>
                   <div className="w-full border solid border-gray-500 my-2"></div>
-                  <p className="text-sm">{projectItem.techStack}</p>
+                  <p className="text-sm font-semibold">{projectItem.techStack}</p>
                 </div>
               </div>
             ))}
