@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { globalValContext } from "@/context/globalVal.tsx";
 import { isMobile } from "react-device-detect";
 import { Project, WorkExperience } from "@/types/ui";
+import { getImage } from "@/utils";
 
 import Lottie from "react-lottie";
 import swipeDown from "@/assets/lotties/swipe-down.json";
@@ -18,8 +19,8 @@ export default function Main() {
   return (
     <div className="">
       <div className="container mx-auto flex flex-col justify-center items-center text-center h-screen gap-2">
-        <h1> Hi, I’m Vi Khang</h1>
-        <p>I design and build things.</p>
+        <h1>{UI.hero.title}</h1>
+        <p>{UI.hero.desc}</p>
         <a href="#about">
           <Lottie options={defaultOptions} height={100} width={100} />
         </a>
@@ -35,7 +36,10 @@ export default function Main() {
                 <p key={descItem}>{descItem}</p>
               ))}
             </div>
-            <div className="size-[200px] md:size-[300px] bg-gray-500 rounded-sm"></div>
+            <img
+              src={getImage(UI.about.image)}
+              className="size-[200px] md:size-[300px]"
+            />
           </div>
         </div>
       </div>
@@ -108,17 +112,27 @@ export default function Main() {
                     : "order-2 text-right"
                 }`}
               >
-                <h3>{projectItem.name}</h3>
+                <a href={projectItem.link} target="_blank">
+                  <h3 className="cursor-pointer hover:opacity-80">
+                    {projectItem.name}
+                  </h3>
+                </a>
                 <p>{projectItem.desc}</p>
                 <div className="w-full border solid border-gray-500 my-2"></div>
                 <p>{projectItem.techStack}</p>
               </div>
-
-              <div
-                className={`text-left w-full h-[200px] bg-gray-500 rounded-sm ${
-                  isMobile ? "order-1" : index % 2 !== 0 ? "order-2" : "order-1"
-                }`}
-              ></div>
+              <a href={projectItem.link} target="_blank">
+                <img
+                  src={getImage(projectItem.image)}
+                  className={`w-full h-[200px] bg-gray-500 rounded-sm ${
+                    isMobile
+                      ? "order-1"
+                      : index % 2 !== 0
+                      ? "order-2"
+                      : "order-1"
+                  }`}
+                />
+              </a>
             </div>
           ))}
 
@@ -128,9 +142,18 @@ export default function Main() {
           <div className="grid md:grid-cols-2 gap-4 md:gap-10 mt-10 md:mt-0">
             {UI.projects.other.map((projectItem: Project, index: number) => (
               <div key={index} className="flex md:mt-14 gap-2">
-                <div className="text-left min-w-[70px] h-[70px] md:min-w-[100px] md:h-[100px] bg-gray-500 rounded-sm"></div>
+                <a href={projectItem.link} target="_blank">
+                  <img
+                    src={getImage(projectItem.image)}
+                    className="text-left min-w-[70px] h-[70px] md:min-w-[100px] md:h-[100px] bg-gray-500 rounded-sm object-contain"
+                  />
+                </a>
                 <div className="text-left space-y-2">
-                  <h4>{projectItem.name}</h4>
+                  <h4 className="cursor-auto opacity-80">
+                    <a href={projectItem.link} target="_blank">
+                      {projectItem.name}
+                    </a>
+                  </h4>
                   <p className="text-sm">{projectItem.desc}</p>
                   <div className="w-full border solid border-gray-500 my-2"></div>
                   <p className="text-sm">{projectItem.techStack}</p>

@@ -20,6 +20,7 @@ export interface Project {
   image: string;
   name: string;
   desc: string;
+  link: string;
   techStack: string | string[];
 }
 

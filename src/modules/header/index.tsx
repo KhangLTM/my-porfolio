@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import logo from "@/assets/img/logo.png";
 import Hamburger from "hamburger-react";
+import KhangCV from "@/assets/doc/Khang-FE.pdf";
 import "./style.scss";
 import { globalValContext } from "@/context/globalVal.tsx";
 import useScrollVisibility from "@/hooks/useScrollVisibility";
@@ -44,8 +45,9 @@ export default function Header() {
         ))}
       </nav>
       <div className="hidden md:flex col-span-3 justify-center gap-4">
-        <button className="btn-primary">Resume</button>
-        <button className="btn-primary">Hire me</button>
+        <a href={KhangCV} download>
+          <button className="btn-primary ">Resume</button>
+        </a>
       </div>
       <div className="col-span-7 md:hidden"></div>
       <div className="md:hidden col-span-2">
@@ -66,8 +68,9 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex flex-col gap-8">
-            <button className="btn-primary text-xl">Resume</button>
-            <button className="btn-primary text-xl">Hire me</button>
+            <a href={KhangCV} download>
+              <button className="btn-primary text-xl">Resume</button>
+            </a>
           </div>
         </div>
       )}

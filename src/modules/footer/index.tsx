@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { globalValContext } from "@/context/globalVal.tsx";
+import KhangCV from "@/assets/doc/Khang-FE.pdf";
+
 export default function Footer() {
   const { UI } = useContext(globalValContext);
 
@@ -14,8 +16,13 @@ export default function Footer() {
         </h2>
         <div className="flex-1 flex flex-col justify-center items-center mt-14 md:mt-[100px] gap-5">
           <p className="md:w-[60%]">{UI.contact.desc}</p>
-          <button className="btn-primary">Write Message</button>
+          <a href={KhangCV} download>
+          <button className="btn-primary ">Resume</button>
+        </a>
         </div>
+
+        
+
         <div className="mt-10 md:mt-[100px]">{UI.contact.sign}</div>
       </div>
     </div>

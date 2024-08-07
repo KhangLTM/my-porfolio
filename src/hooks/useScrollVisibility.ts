@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 // Custom Hook for handling scroll visibility
 const useScrollVisibility = (): boolean => {
@@ -14,7 +14,7 @@ const useScrollVisibility = (): boolean => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [position]); // Depend on position so the effect updates correctly
+  }, [position]);
 
   return visible;
 };
